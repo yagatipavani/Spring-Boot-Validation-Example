@@ -1,6 +1,7 @@
 package com.example.SpringBootValidationExample.Entity;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
@@ -13,7 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 @Data
 public class User {

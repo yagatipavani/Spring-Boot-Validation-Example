@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.SpringBootValidationExample.DTO.UserRequest;
 import com.example.SpringBootValidationExample.Entity.Users;
+import com.example.SpringBootValidationExample.Exceptions.UserNotFoundException;
 import com.example.SpringBootValidationExample.Repository.UserRepository;
 
 @Service
@@ -22,5 +23,14 @@ public class UserService {
 
     public List<Users> fetchAll() {
         return repository.findAll();
+    }
+
+    public Users getUser(int id) throws UserNotFoundException {
+        Users users = repository.getUserById(id);
+        if(users != null)
+        {
+            return users;
+        }
+        throw new UserNotFoundException("No user found with id : "+id);
     }
 }

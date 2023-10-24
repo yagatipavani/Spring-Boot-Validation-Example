@@ -7,5 +7,7 @@ import com.example.SpringBootValidationExample.Entity.Users;
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Integer> {
+
+    Users getUserById(int id);
     
 }

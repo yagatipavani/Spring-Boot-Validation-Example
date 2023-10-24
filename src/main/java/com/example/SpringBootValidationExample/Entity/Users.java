@@ -17,13 +17,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 @Data
-public class User {
+public class Users {
     @Id
     @GeneratedValue
     private int id;
     private String name;
     private String email;
     private int age;
-    @JsonFormat(shape =Shape.STRING, pattern = "dd/mm/yyyy")
-    private Date registerDate;
+    private String registerDate;
 }

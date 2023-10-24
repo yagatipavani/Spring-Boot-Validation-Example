@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.SpringBootValidationExample.DTO.UserRequest;
-import com.example.SpringBootValidationExample.Entity.User;
+import com.example.SpringBootValidationExample.Entity.Users;
 import com.example.SpringBootValidationExample.Service.UserService;
+
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -22,13 +24,13 @@ public class UserController {
     UserService service;
 
     @PostMapping("/save")
-    User save(@RequestBody UserRequest req)
+    Users save(@RequestBody @Valid UserRequest req)
     {
        return service.save(req);
     }
 
     @GetMapping("/fetchAll")
-    List<User> getUsers()
+    List<Users> getUsers()
     {
         return service.fetchAll();
     }
